@@ -24,7 +24,7 @@ public class FaceDetectionPlugin extends Plugin {
 
     public static final String TAG = "FaceDetection";
     public static final String ERROR_PROCESS_IMAGE_CANCELED = "processImage canceled.";
-    public static final String ERROR_PATH_MISSING = "path must be provided.";
+    public static final String ERROR_PATH_OR_BITMAP_MISSING = "path or bitmap must be provided.";
     public static final String ERROR_LOAD_IMAGE_FAILED = "image could not be loaded.";
 
     private FaceDetection implementation;
@@ -38,14 +38,22 @@ public class FaceDetectionPlugin extends Plugin {
         }
     }
 
+
     @PluginMethod
     public void processImage(PluginCall call) {
         try {
             String path = call.getString("path", null);
+
             if (path == null) {
-                call.reject(ERROR_PATH_MISSING);
+                call.reject(ERROR_PATH_OR_BITMAP_MISSING);
                 return;
             }
+
+            String base_jpeg = "data:image/jpeg;base64,";
+            InputImage image = path.startsWith(base_jpeg)
+                    ? implementation.createInputImageFromBase64(path.substring(base_jpeg.length()))
+                    : implementation.createInputImageFromFilePath(path);
+
             Integer performanceMode = call.getInt("performanceMode", FaceDetectorOptions.PERFORMANCE_MODE_FAST);
             Integer landmarkMode = call.getInt("landmarkMode", FaceDetectorOptions.LANDMARK_MODE_NONE);
             Integer contourMode = call.getInt("contourMode", FaceDetectorOptions.CONTOUR_MODE_NONE);
@@ -53,7 +61,6 @@ public class FaceDetectionPlugin extends Plugin {
             Float minFaceSize = call.getFloat("minFaceSize", 0.1f);
             Boolean enableTracking = call.getBoolean("enableTracking", false);
 
-            InputImage image = implementation.createInputImageFromFilePath(path);
             if (image == null) {
                 call.reject(ERROR_LOAD_IMAGE_FAILED);
                 return;

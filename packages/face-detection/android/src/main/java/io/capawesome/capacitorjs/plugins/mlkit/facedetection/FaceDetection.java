@@ -3,6 +3,9 @@ package io.capawesome.capacitorjs.plugins.mlkit.facedetection;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.face.FaceDetector;
 import com.google.mlkit.vision.face.FaceDetectorOptions;
@@ -23,6 +26,18 @@ public class FaceDetection {
         try {
             return InputImage.fromFilePath(this.plugin.getContext(), Uri.parse(path));
         } catch (Exception exception) {
+            return null;
+        }
+    }
+
+    @Nullable
+    public InputImage createInputImageFromBase64(@NonNull String base64) {
+        try {
+            byte[] decodedBytes = Base64.decode(base64, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+            return InputImage.fromBitmap(bitmap, 0);
+        } catch (Exception exception) {
+            System.out.println(exception);
             return null;
         }
     }
