@@ -1,4 +1,7 @@
 {
   "name": "capacitor-mlkit",
-  "private": true,
+  "scripts": {
+  },
+  "devDependencies": {
+  }
 }
