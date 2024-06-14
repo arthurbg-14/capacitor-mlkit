@@ -1,0 +1,984 @@
+{
+  "api": {
+    "name": "FaceDetectionPlugin",
+    "slug": "facedetectionplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "processImage",
+        "signature": "(options: ProcessImageOptions) => Promise<ProcessImageResult>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "ProcessImageOptions"
+          }
+        ],
+        "returns": "Promise<ProcessImageResult>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "5.1.0"
+          }
+        ],
+        "docs": "Detects human faces from the supplied image.\n\nOnly available on Android and iOS.",
+        "complexTypes": [
+          "ProcessImageResult",
+          "ProcessImageOptions"
+        ],
+        "slug": "processimage"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "ProcessImageResult",
+      "slug": "processimageresult",
+      "docs": "",
+      "tags": [
+        {
+          "text": "5.1.0",
+          "name": "since"
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "faces",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The detected faces.",
+          "complexTypes": [
+            "Face"
+          ],
+          "type": "Face[]"
+        }
+      ]
+    },
+    {
+      "name": "Face",
+      "slug": "face",
+      "docs": "Represents a face detected by `FaceDetector`.",
+      "tags": [
+        {
+          "text": "5.1.0",
+          "name": "since"
+        },
+        {
+          "text": "https ://developers.google.com/android/reference/com/google/mlkit/vision/face/Face",
+          "name": "see"
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "bounds",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Returns the axis-aligned bounding rectangle of the detected face.",
+          "complexTypes": [
+            "Rect"
+          ],
+          "type": "Rect"
+        },
+        {
+          "name": "landmarks",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Returns a list of face landmarks.",
+          "complexTypes": [
+            "FaceLandmark"
+          ],
+          "type": "FaceLandmark[] | undefined"
+        },
+        {
+          "name": "contours",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Returns a list of face contours.",
+          "complexTypes": [
+            "FaceContour"
+          ],
+          "type": "FaceContour[] | undefined"
+        },
+        {
+          "name": "trackingId",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Returns the tracking ID if the tracking is enabled.",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "headEulerAngleX",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Returns the rotation of the face about the horizontal axis of the image.\nPositive euler X is the face is looking up.",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "headEulerAngleY",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Returns the rotation of the face about the vertical axis of the image.\nPositive euler y is when the face turns toward the right side of the image that is being processed.",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "headEulerAngleZ",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Returns the rotation of the face about the axis pointing out of the image.\nPositive euler z is a counter-clockwise rotation within the image plane.",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "smilingProbability",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Returns a value between 0.0 and 1.0 giving a probability that the face is smiling.",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "leftEyeOpenProbability",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Returns a value between 0.0 and 1.0 giving a probability that the face's left eye is open.",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "rightEyeOpenProbability",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Returns a value between 0.0 and 1.0 giving a probability that the face's right eye is open.",
+          "complexTypes": [],
+          "type": "number | undefined"
+        }
+      ]
+    },
+    {
+      "name": "Rect",
+      "slug": "rect",
+      "docs": "Rect holds four integer coordinates for a rectangle.",
+      "tags": [
+        {
+          "text": "5.1.0",
+          "name": "since"
+        },
+        {
+          "text": "https ://developer.android.com/reference/android/graphics/Rect.html",
+          "name": "see"
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "left",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The X coordinate of the left side of the rectangle.",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "top",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The Y coordinate of the top of the rectangle.",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "right",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The X coordinate of the right side of the rectangle.",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "bottom",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The Y coordinate of the bottom of the rectangle.",
+          "complexTypes": [],
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "FaceLandmark",
+      "slug": "facelandmark",
+      "docs": "Represent a face landmark.\nA landmark is a point on a detected face, such as an eye, nose, or mouth.",
+      "tags": [
+        {
+          "text": "5.1.0",
+          "name": "since"
+        },
+        {
+          "text": "https ://developers.google.com/android/reference/com/google/mlkit/vision/face/FaceLandmark",
+          "name": "see"
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Gets the FaceLandmark.LandmarkType type.",
+          "complexTypes": [
+            "LandmarkType"
+          ],
+          "type": "LandmarkType"
+        },
+        {
+          "name": "position",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Gets a 2D point for landmark position, where (0, 0) is the upper-left corner of the image.",
+          "complexTypes": [
+            "Point"
+          ],
+          "type": "Point"
+        }
+      ]
+    },
+    {
+      "name": "Point",
+      "slug": "point",
+      "docs": "Point holds two coordinates",
+      "tags": [
+        {
+          "text": "5.1.0",
+          "name": "since"
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "x",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "y",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "FaceContour",
+      "slug": "facecontour",
+      "docs": "Represent a face contour.\nA contour is a list of points on a detected face, such as the mouth.",
+      "tags": [
+        {
+          "text": "5.1.0",
+          "name": "since"
+        },
+        {
+          "text": "https ://developers.google.com/android/reference/com/google/mlkit/vision/face/FaceContour",
+          "name": "see"
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Gets the FaceContour.ContourType type.",
+          "complexTypes": [
+            "ContourType"
+          ],
+          "type": "ContourType"
+        },
+        {
+          "name": "points",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Gets a list of 2D points for this face contour, where (0, 0) is the upper-left corner of the image.",
+          "complexTypes": [
+            "Point"
+          ],
+          "type": "Point[]"
+        }
+      ]
+    },
+    {
+      "name": "ProcessImageOptions",
+      "slug": "processimageoptions",
+      "docs": "",
+      "tags": [
+        {
+          "text": "5.1.0",
+          "name": "since"
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "path",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The local path to the image file.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "performanceMode",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            },
+            {
+              "text": "PerformanceMode.Fast",
+              "name": "default"
+            },
+            {
+              "text": "https ://developers.google.com/android/reference/com/google/mlkit/vision/face/FaceDetectorOptions.PerformanceMode",
+              "name": "see"
+            }
+          ],
+          "docs": "Defines options to control accuracy / speed trade-offs in performing face detection.",
+          "complexTypes": [
+            "PerformanceMode"
+          ],
+          "type": "PerformanceMode"
+        },
+        {
+          "name": "landmarkMode",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            },
+            {
+              "text": "LandmarkMode.None",
+              "name": "default"
+            },
+            {
+              "text": "https ://developers.google.com/android/reference/com/google/mlkit/vision/face/FaceDetectorOptions.LandmarkMode",
+              "name": "see"
+            }
+          ],
+          "docs": "Defines options to enable face landmarks or not.",
+          "complexTypes": [
+            "LandmarkMode"
+          ],
+          "type": "LandmarkMode"
+        },
+        {
+          "name": "contourMode",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            },
+            {
+              "text": "ContourMode.None",
+              "name": "default"
+            },
+            {
+              "text": "https ://developers.google.com/android/reference/com/google/mlkit/vision/face/FaceDetectorOptions.ContourMode",
+              "name": "see"
+            }
+          ],
+          "docs": "Defines options to enable face contours or not.",
+          "complexTypes": [
+            "ContourMode"
+          ],
+          "type": "ContourMode"
+        },
+        {
+          "name": "classificationMode",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            },
+            {
+              "text": "ClassificationMode.None",
+              "name": "default"
+            },
+            {
+              "text": "https ://developers.google.com/android/reference/com/google/mlkit/vision/face/FaceDetectorOptions.ClassificationMode",
+              "name": "see"
+            }
+          ],
+          "docs": "Defines options for characterizing attributes such as \"smiling\" * and \"eyes open\".",
+          "complexTypes": [
+            "ClassificationMode"
+          ],
+          "type": "ClassificationMode"
+        },
+        {
+          "name": "minFaceSize",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            },
+            {
+              "text": "0.1",
+              "name": "default"
+            },
+            {
+              "text": "https ://developers.google.com/android/reference/com/google/mlkit/vision/face/FaceDetectorOptions.Builder#public-facedetectoroptions.builder-setminfacesize-float-minfacesize",
+              "name": "see"
+            }
+          ],
+          "docs": "Sets the smallest desired face size, expressed as a proportion of the width of the head to the image width.",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "enableTracking",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            },
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "https ://developers.google.com/android/reference/com/google/mlkit/vision/face/FaceDetectorOptions.Builder#public-facedetectoroptions.builder-enabletracking",
+              "name": "see"
+            }
+          ],
+          "docs": "Enables face tracking, which will maintain a consistent ID for each face when processing consecutive frames.\nTracking should be disabled for handling a series of non-consecutive still images.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "name": "LandmarkType",
+      "slug": "landmarktype",
+      "members": [
+        {
+          "name": "MouthBottom",
+          "value": "0",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The center of the subject's bottom lip."
+        },
+        {
+          "name": "LeftCheek",
+          "value": "1",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The midpoint between the subject's left mouth corner and the outer corner of the subject's left eye.\nFor full profile faces, this becomes the centroid of the nose base, nose tip, left ear lobe and left ear tip."
+        },
+        {
+          "name": "LeftEar",
+          "value": "3",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The midpoint of the subject's left ear tip and left ear lobe."
+        },
+        {
+          "name": "LeftEye",
+          "value": "4",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The center of the subject's left eye cavity."
+        },
+        {
+          "name": "MouthLeft",
+          "value": "5",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The subject's left mouth corner where the lips meet."
+        },
+        {
+          "name": "NoseBase",
+          "value": "6",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The midpoint between the subject's nostrils where the nose meets the face."
+        },
+        {
+          "name": "RightCheek",
+          "value": "7",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The midpoint between the subject's right mouth corner and the outer corner of the subject's right eye.\nFor full profile faces, this becomes the centroid of the nose base, nose tip, right ear lobe and right ear tip."
+        },
+        {
+          "name": "RightEar",
+          "value": "9",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The midpoint of the subject's right ear tip and right ear lobe."
+        },
+        {
+          "name": "RightEye",
+          "value": "10",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The center of the subject's right eye cavity."
+        },
+        {
+          "name": "MouthRight",
+          "value": "11",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The subject's right mouth corner where the lips meet."
+        }
+      ]
+    },
+    {
+      "name": "ContourType",
+      "slug": "contourtype",
+      "members": [
+        {
+          "name": "Face",
+          "value": "1",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The outline of the subject's face."
+        },
+        {
+          "name": "LeftEyebrowTop",
+          "value": "2",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The top outline of the subject's left eyebrow."
+        },
+        {
+          "name": "LeftEyebrowBottom",
+          "value": "3",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The bottom outline of the subject's left eyebrow."
+        },
+        {
+          "name": "RightEyebrowTop",
+          "value": "4",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The top outline of the subject's right eyebrow."
+        },
+        {
+          "name": "RightEyebrowBottom",
+          "value": "5",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The bottom outline of the subject's right eyebrow."
+        },
+        {
+          "name": "LeftEye",
+          "value": "6",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The outline of the subject's left eye cavity."
+        },
+        {
+          "name": "RightEye",
+          "value": "7",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The outline of the subject's right eye cavity."
+        },
+        {
+          "name": "UpperLipTop",
+          "value": "8",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The top outline of the subject's upper lip."
+        },
+        {
+          "name": "UpperLipBottom",
+          "value": "9",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The bottom outline of the subject's upper lip."
+        },
+        {
+          "name": "LowerLipTop",
+          "value": "10",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The top outline of the subject's lower lip."
+        },
+        {
+          "name": "LowerLipBottom",
+          "value": "11",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The bottom outline of the subject's lower lip."
+        },
+        {
+          "name": "NoseBridge",
+          "value": "12",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The outline of the subject's nose bridge."
+        },
+        {
+          "name": "NoseBottom",
+          "value": "13",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The outline of the subject's nose bridge."
+        },
+        {
+          "name": "LeftCheek",
+          "value": "14",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The center of the left cheek."
+        },
+        {
+          "name": "RightCheek",
+          "value": "15",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "The center of the right cheek."
+        }
+      ]
+    },
+    {
+      "name": "PerformanceMode",
+      "slug": "performancemode",
+      "members": [
+        {
+          "name": "Fast",
+          "value": "1",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            },
+            {
+              "text": "https ://developers.google.com/android/reference/com/google/mlkit/vision/face/FaceDetectorOptions#PERFORMANCE_MODE_FAST",
+              "name": "see"
+            }
+          ],
+          "docs": "Indicates a preference for speed in the options that may make an accuracy vs. speed trade-off.\nThis will tend to detect fewer faces and may be less precise in determining values such as position, but will run faster."
+        },
+        {
+          "name": "Accurate",
+          "value": "2",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            },
+            {
+              "text": "https ://developers.google.com/android/reference/com/google/mlkit/vision/face/FaceDetectorOptions#public-static-final-int-performance_mode_accurate",
+              "name": "see"
+            }
+          ],
+          "docs": "Indicates a preference for accuracy in the options that may make an accuracy vs. speed trade-off.\nThis will tend to detect more faces and may be more precise in determining values such as position, at the cost of speed."
+        }
+      ]
+    },
+    {
+      "name": "LandmarkMode",
+      "slug": "landmarkmode",
+      "members": [
+        {
+          "name": "None",
+          "value": "1",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            },
+            {
+              "text": "https ://developers.google.com/android/reference/com/google/mlkit/vision/face/FaceDetectorOptions#public-static-final-int-landmark_mode_none",
+              "name": "see"
+            }
+          ],
+          "docs": "Does not perform landmark detection."
+        },
+        {
+          "name": "All",
+          "value": "2",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            },
+            {
+              "text": "https ://developers.google.com/android/reference/com/google/mlkit/vision/face/FaceDetectorOptions#public-static-final-int-landmark_mode_all",
+              "name": "see"
+            }
+          ],
+          "docs": "Detects FaceLandmark for a given face."
+        }
+      ]
+    },
+    {
+      "name": "ContourMode",
+      "slug": "contourmode",
+      "members": [
+        {
+          "name": "None",
+          "value": "1",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            },
+            {
+              "text": "https ://developers.google.com/android/reference/com/google/mlkit/vision/face/FaceDetectorOptions#public-static-final-int-contour_mode_none",
+              "name": "see"
+            }
+          ],
+          "docs": "Does not perform contour detection."
+        },
+        {
+          "name": "All",
+          "value": "2",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            },
+            {
+              "text": "https ://developers.google.com/android/reference/com/google/mlkit/vision/face/FaceDetectorOptions#public-static-final-int-contour_mode_all",
+              "name": "see"
+            }
+          ],
+          "docs": "Detects FaceContour for a given face.\nNote that it would return contours for up to 5 faces"
+        }
+      ]
+    },
+    {
+      "name": "ClassificationMode",
+      "slug": "classificationmode",
+      "members": [
+        {
+          "name": "None",
+          "value": "1",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            },
+            {
+              "text": "https ://developers.google.com/android/reference/com/google/mlkit/vision/face/FaceDetectorOptions#public-static-final-int-classification_mode_none",
+              "name": "see"
+            }
+          ],
+          "docs": "Does not perform classification."
+        },
+        {
+          "name": "All",
+          "value": "2",
+          "tags": [
+            {
+              "text": "5.1.0",
+              "name": "since"
+            },
+            {
+              "text": "https ://developers.google.com/android/reference/com/google/mlkit/vision/face/FaceDetectorOptions#public-static-final-int-classification_mode_all",
+              "name": "see"
+            }
+          ],
+          "docs": "Performs \"eyes open\" and \"smiling\" classification."
+        }
+      ]
+    }
+  ],
+  "typeAliases": [],
+  "pluginConfigs": []
+}
