@@ -22,7 +22,7 @@
             "text": "5.1.0"
           }
         ],
-        "docs": "Detects human faces from the supplied image.\n\nOnly available on Android and iOS.",
+        "docs": "Detects human faces from the supplied image.\r\n\r\nOnly available on Android and iOS.",
         "complexTypes": [
           "ProcessImageResult",
           "ProcessImageOptions"
@@ -139,7 +139,7 @@
               "name": "since"
             }
           ],
-          "docs": "Returns the rotation of the face about the horizontal axis of the image.\nPositive euler X is the face is looking up.",
+          "docs": "Returns the rotation of the face about the horizontal axis of the image.\r\nPositive euler X is the face is looking up.",
           "complexTypes": [],
           "type": "number"
         },
@@ -151,7 +151,7 @@
               "name": "since"
             }
           ],
-          "docs": "Returns the rotation of the face about the vertical axis of the image.\nPositive euler y is when the face turns toward the right side of the image that is being processed.",
+          "docs": "Returns the rotation of the face about the vertical axis of the image.\r\nPositive euler y is when the face turns toward the right side of the image that is being processed.",
           "complexTypes": [],
           "type": "number"
         },
@@ -163,7 +163,7 @@
               "name": "since"
             }
           ],
-          "docs": "Returns the rotation of the face about the axis pointing out of the image.\nPositive euler z is a counter-clockwise rotation within the image plane.",
+          "docs": "Returns the rotation of the face about the axis pointing out of the image.\r\nPositive euler z is a counter-clockwise rotation within the image plane.",
           "complexTypes": [],
           "type": "number"
         },
@@ -274,7 +274,7 @@
     {
       "name": "FaceLandmark",
       "slug": "facelandmark",
-      "docs": "Represent a face landmark.\nA landmark is a point on a detected face, such as an eye, nose, or mouth.",
+      "docs": "Represent a face landmark.\r\nA landmark is a point on a detected face, such as an eye, nose, or mouth.",
       "tags": [
         {
           "text": "5.1.0",
@@ -348,7 +348,7 @@
     {
       "name": "FaceContour",
       "slug": "facecontour",
-      "docs": "Represent a face contour.\nA contour is a list of points on a detected face, such as the mouth.",
+      "docs": "Represent a face contour.\r\nA contour is a list of points on a detected face, such as the mouth.",
       "tags": [
         {
           "text": "5.1.0",
@@ -539,7 +539,7 @@
               "name": "see"
             }
           ],
-          "docs": "Enables face tracking, which will maintain a consistent ID for each face when processing consecutive frames.\nTracking should be disabled for handling a series of non-consecutive still images.",
+          "docs": "Enables face tracking, which will maintain a consistent ID for each face when processing consecutive frames.\r\nTracking should be disabled for handling a series of non-consecutive still images.",
           "complexTypes": [],
           "type": "boolean | undefined"
         }
@@ -571,7 +571,7 @@
               "name": "since"
             }
           ],
-          "docs": "The midpoint between the subject's left mouth corner and the outer corner of the subject's left eye.\nFor full profile faces, this becomes the centroid of the nose base, nose tip, left ear lobe and left ear tip."
+          "docs": "The midpoint between the subject's left mouth corner and the outer corner of the subject's left eye.\r\nFor full profile faces, this becomes the centroid of the nose base, nose tip, left ear lobe and left ear tip."
         },
         {
           "name": "LeftEar",
@@ -626,7 +626,7 @@
               "name": "since"
             }
           ],
-          "docs": "The midpoint between the subject's right mouth corner and the outer corner of the subject's right eye.\nFor full profile faces, this becomes the centroid of the nose base, nose tip, right ear lobe and right ear tip."
+          "docs": "The midpoint between the subject's right mouth corner and the outer corner of the subject's right eye.\r\nFor full profile faces, this becomes the centroid of the nose base, nose tip, right ear lobe and right ear tip."
         },
         {
           "name": "RightEar",
@@ -851,7 +851,7 @@
               "name": "see"
             }
           ],
-          "docs": "Indicates a preference for speed in the options that may make an accuracy vs. speed trade-off.\nThis will tend to detect fewer faces and may be less precise in determining values such as position, but will run faster."
+          "docs": "Indicates a preference for speed in the options that may make an accuracy vs. speed trade-off.\r\nThis will tend to detect fewer faces and may be less precise in determining values such as position, but will run faster."
         },
         {
           "name": "Accurate",
@@ -866,7 +866,7 @@
               "name": "see"
             }
           ],
-          "docs": "Indicates a preference for accuracy in the options that may make an accuracy vs. speed trade-off.\nThis will tend to detect more faces and may be more precise in determining values such as position, at the cost of speed."
+          "docs": "Indicates a preference for accuracy in the options that may make an accuracy vs. speed trade-off.\r\nThis will tend to detect more faces and may be more precise in determining values such as position, at the cost of speed."
         }
       ]
     },
@@ -938,7 +938,7 @@
               "name": "see"
             }
           ],
-          "docs": "Detects FaceContour for a given face.\nNote that it would return contours for up to 5 faces"
+          "docs": "Detects FaceContour for a given face.\r\nNote that it would return contours for up to 5 faces"
         }
       ]
     },

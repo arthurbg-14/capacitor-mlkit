@@ -1,6 +1,7 @@
 import Foundation
 import MLKitVision
 import MLKitFaceDetection
+import UIKit
 
 @objc public class FaceDetection: NSObject {
     public let plugin: FaceDetectionPlugin
@@ -23,6 +24,22 @@ import MLKitFaceDetection
         } else {
             return nil
         }
+    }
+
+    @objc func createInputImageFromBase64(_ base64: String) -> VisionImage? {
+        guard let decodedData = Data(base64Encoded: base64, options: .ignoreUnknownCharacters) else {
+            return nil
+        }
+        
+        guard let image = UIImage(data: decodedData) else {
+            return nil
+        }
+        
+        let visionImage = VisionImage(image: image)
+        visionImage.metadata = VisionImageMetadata()
+        visionImage.metadata?.orientation = .topLeft
+        
+        return visionImage
     }
 
     @objc func processImage(_ options: ProcessImageOptions, completion: @escaping (ProcessImageResult?, Error?) -> Void) {

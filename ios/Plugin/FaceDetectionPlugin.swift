@@ -24,6 +24,7 @@ public class FaceDetectionPlugin: CAPPlugin {
             call.reject(errorPathMissing)
             return
         }
+
         let performanceMode = call.getInt("performanceMode", FaceDetectorPerformanceMode.fast.rawValue)
         let landmarkMode = call.getInt("landmarkMode", FaceDetectorLandmarkMode.none.rawValue)
         let contourMode = call.getInt("contourMode", FaceDetectorContourMode.none.rawValue)
@@ -31,9 +32,14 @@ public class FaceDetectionPlugin: CAPPlugin {
         let minFaceSize = call.getFloat("minFaceSize", 0.1)
         let enableTracking = call.getBool("enableTracking", false)
 
-        guard let visionImage = implementation?.createVisionImageFromFilePath(path) else {
-            call.reject(errorLoadImageFailed)
-            return
+        let baseJpeg = "data:image/jpeg;base64,"
+        let image: VisionImage?
+
+        if path.hasPrefix(baseJpeg) {
+            let base64String = String(path.dropFirst(baseJpeg.count))
+            image = createInputImageFromBase64(base64: base64String)
+        } else {
+            image = createInputImageFromFilePath(path: path)
         }
 
         let options = ProcessImageOptions(visionImage: visionImage, performanceMode: performanceMode, landmarkMode: landmarkMode,
